@@ -24,8 +24,6 @@ def q_6_rng():
     return df
 
 
-df = q_6_rng()
-#print(df)
 
 def q_7_rng():
     pollution_country = []
@@ -44,9 +42,6 @@ def q_7_rng():
     df = df.set_index('Countries', append=True).swaplevel(1,0).sort_index(level=0)
     return df
 
-df7 = q_7_rng()
-#print(df7.to_string())
-
 
 def q_8_rng():
     pollution_country = []
@@ -63,9 +58,6 @@ def q_8_rng():
     df = pd.DataFrame({'Countries': countryarr[:], 'Recyclable plastic %': rec_arr[:], 'Non-Recyclable plastic %': nrec_arr[:]})
     df = df.set_index('Countries', append=True).swaplevel(1,0).sort_index(level=0)
     return df
-
-df8 = q_8_rng()
-print(df8.to_string())
 
 
 
