@@ -22,5 +22,30 @@ def q_6_rng():
     df = pd.DataFrame(stack,columns=countries)
     return df
 
-df = q_6_rng()
-print(df)
+
+
+
+
+
+
+#Plastic waste generation per person for every country per year (KG per year)
+def q_9_rng():
+    columns = ['countries','plastic waste per capita']
+    plastic_waste_per_person = []
+    for i in range(7):
+        pwg_num = random.randrange(20,110,1)
+        row = [countries[i],pwg_num]
+        plastic_waste_per_person.append(row)
+    df_q9 = pd.DataFrame(plastic_waste_per_person, columns=columns)
+    return df_q9
+    
+def q_10_rng():
+    columns = ['countries','money spent processing plastic']
+    plastic_money = []
+    for i in range(7):
+        mpc_num = random.randrange(500000000,5000000000,1)
+        row = [countries[i], mpc_num]
+        plastic_money.append(row)
+    df_q10 = pd.DataFrame(plastic_money, columns=columns)
+    return df_q10
+
