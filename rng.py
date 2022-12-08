@@ -5,8 +5,7 @@ import pandas as pd
 
 
 countries = ['United Kingdom','Ireland','France','Spain','Portugal','Italy','Germany']
-
-
+time = [2016, 2017, 2018, 2019, 2020]
 
 #Q1: Most pollution produced by a country:
 def q_1_rng():
@@ -61,7 +60,6 @@ def q_5_rng():
     df = pd.DataFrame({"countires" : countries[:], 'PET': PET_pollution[:], 'HDPE': HDPE_pollution, 'LDPE': LDPE_pollution[:], 'PVC': PVC_pollution[:]})
     return df
     
-
 
 #plastic consumption in metric tonnes kg 
 #Pollution emission in metric tonnes kg (CO2)
