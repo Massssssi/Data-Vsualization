@@ -1,10 +1,32 @@
-from rng import q_9_rng, q_10_rng
+from rng import q_6_rng, q_7_rng, q_8_rng, q_9_rng, q_10_rng
 import pandas as pd
 import matplotlib.pyplot as plt
 import plotly.express as pltlyexp
+import numpy as np
+import seaborn as sns
+import plotly.figure_factory as ff
 
+q6_df = q_6_rng()
+q7_df = q_7_rng()
+q8_df = q_8_rng()
 q9_df = q_9_rng()
 q10_df = q_10_rng()
+
+
+def plot_bar_q6():
+    ax = q6_df.plot.bar(x='Countries', stacked=True, title='Plastic consumption (weight) vs pollution emmission (CO2) for countries in Western Europe').set_ylabel("Metric tonnes (kg)")
+    plt.legend = plt.legend(title="Measure",
+                   loc='upper right', fontsize='small', fancybox=True)
+    plt.show()
+
+def plot_tree_q6():
+    sizes = q6_df['Plastic consumption'].values
+    labels = q6_df['Countries'].values
+
+    fig = pltlyexp.treemap(q6_df, path = [labels],values = sizes, color = q6_df['Pollution emmission'], title="Plastic consumption shown by size (weight) vs pollution emmission (CO2) for countries in Western Europe")
+    fig.show()
+
+
 
 
 def plot_bar_q9():
@@ -24,6 +46,3 @@ def plot_tree_q9():
 def plot_bar_q10():
     q10_df.set_index('countries').plot(kind='bar', rot=0, title="Amount of money spent recycling plastic per country (2022)").set_ylabel("Money spent (€)")
     plt.show()
-
-
-plot_tree_q9()
