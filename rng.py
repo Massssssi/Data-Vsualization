@@ -10,19 +10,20 @@ time = [2016, 2017, 2018, 2019, 2020]
 #plastic consumption in metric tonnes kg 
 #Pollution emission in metric tonnes kg (CO2)
 def q_6_rng():
+    pollution_country = []
     plastic_consumption = []
     pollution_emission = []
     for i in range (7):
-        pc_num = random.randrange(1000000,10000000,1)
+        pc_num = random.randrange(100000000,1000000000,1)
         plastic_consumption.append(pc_num)
         pe_num = random.randrange(500000000,11000000000,1)
         pollution_emission.append(pe_num)
+        pollution_country.append(countries[i])
     pc = np.asarray(plastic_consumption)
     pe = np.asarray(pollution_emission)
-    stack = np.vstack((pc,pe))
-    df = pd.DataFrame(stack,columns=countries)
+    c = np.asarray(pollution_country)
+    df = pd.DataFrame({'Countries': c[:], 'Plastic consumption': pc[:], 'Pollution emmission': pe[:]})
     return df
-
 
 
 def q_7_rng():
@@ -58,12 +59,6 @@ def q_8_rng():
     df = pd.DataFrame({'Countries': countryarr[:], 'Recyclable plastic %': rec_arr[:], 'Non-Recyclable plastic %': nrec_arr[:]})
     df = df.set_index('Countries', append=True).swaplevel(1,0).sort_index(level=0)
     return df
-
-
-
-
-
-
 
 
 #Plastic waste generation per person for every country per year (KG per year)
