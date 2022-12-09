@@ -43,7 +43,77 @@ def plot_bar_q5():
                    loc='upper right', fontsize='small', fancybox=True)
     plt.show()
     
-    
+def plot_choropleth_q1():
+    data = dict(type = 'choropleth',
+    locations =q10_df['countries'],
+    locationmode = 'country names',
+    colorscale= 'greens',
+    text= q1_df['countries'],
+    z=q1_df['PlasticPolution'],
+    colorbar = {'title':'Polution produced'})
+    layout = dict(geo={'scope':'europe'})
+    chmap = go.Figure(data=[data],layout=layout)
+    chmap.update_layout(
+        title_text = 'Polution produced by western countries'
+    )
+    chmap.show()
+
+     
+def plot_tree_q2():
+     sizes = q2_df['PlasticPolution'].values
+     labels = q2_df['countries'].values
+     fig = pltlyexp.treemap(q2_df, path=[labels], values=sizes, title="Countries which produces most polution")
+     fig.show()
+
+
+def plot_tree_q3():
+     sizes = q3_df['PlasticPolution'].values
+     labels = q3_df['countries'].values
+     fig =pltlyexp.treemap(q3_df, path = [labels],values = sizes, color = q3_df['PlasticPolution'], title="Polution produced by western countries")
+     fig.show()
+
+
+def plot_tree_q4():
+     sizes = q4_df['PlasticPolution'].values
+     labels = q4_df['countries'].values
+     fig = pltlyexp.treemap(q4_df, path=[labels], values=sizes, title="Polution produced by western countries")
+     fig.show()
+
+def plot_heat_q5():
+  
+ 
+       countries = q5_df['countries']
+       Polution_Type = ["PET", "HDPE", "LDPE", "PVC"]
+
+      
+       harvest = np.array([q5_df['PET'],
+                          q5_df['HDPE'],
+                          q5_df['LDPE'],
+                          q5_df['PVC']])
+
+
+       fig, ax = plt.subplots()
+       im = ax.imshow(harvest)
+
+        # Show all ticks and label them with the respective list entries
+       ax.set_xticks(np.arange(len(countries)), labels=countries)
+       ax.set_yticks(np.arange(len(Polution_Type)), labels=Polution_Type)
+
+        # Rotate the tick labels and set their alignment.
+       plt.setp(ax.get_xticklabels(), rotation=45, ha="right",
+                 rotation_mode="anchor")
+
+        # Loop over data dimensions and create text annotations.
+       for i in range(len(Polution_Type)):
+            for j in range(len(countries)):
+                text = ax.text(j, i, harvest[i, j],
+                               ha="center", va="center", color="w")
+
+       ax.set_title("Types of Plastic Polution emmitted ")
+       fig.tight_layout()
+       plt.show()
+
+      
 def plot_bar_q6():
     ax = q6_df.plot.bar(x='Countries', stacked=True, title='Plastic consumption (weight) vs pollution emmission (CO2) for countries in Western Europe').set_ylabel("Metric tonnes (kg)")
     plt.legend = plt.legend(title="Measure",
