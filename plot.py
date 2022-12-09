@@ -96,7 +96,7 @@ def plot_bar_q8():
                    loc='upper right', fontsize='small', fancybox=True)
     plt.show()
 
-plot_bar_q8()
+
 
 def plot_tree_q8():
     sizes = q8_df['Recyclable plastic %'].values
@@ -133,12 +133,11 @@ def plot_choropleth_q10():
     chmap.update_layout(
         title_text = 'Amount of money spent recycling plastic in 2022'
     )
-    chmap.show(config={
-    "showLink": False,
-    "displayModeBar": False
-})
+    chmap.show()
 
 
 def plot_bar_q10():
     q10_df.set_index('countries').plot(kind='bar', rot=0, title="Amount of money spent recycling plastic per country (2022)").set_ylabel("Money spent (€)")
     plt.show()
+
+
