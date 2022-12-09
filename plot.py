@@ -133,10 +133,7 @@ def plot_choropleth_q10():
     chmap.update_layout(
         title_text = 'Amount of money spent recycling plastic in 2022'
     )
-    chmap.show(config={
-    "showLink": False,
-    "displayModeBar": False
-})
+    chmap.show()
 
 
 def plot_bar_q10():
