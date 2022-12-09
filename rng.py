@@ -14,10 +14,7 @@ def q_1_rng():
         pp_num = random.randrange(1000000, 10000000, 1)
         plastic_pollution.append(pp_num)
         
-        
-    
-    print(plastic_pollution)
-    
+            
     df = pd.DataFrame({"countries" : countries[:], 'PlasticPolution' :plastic_pollution[:]})
     return df
 

@@ -72,9 +72,7 @@ def plot_bar_q7():
 
 def plot_heat_q7():
     q7_df_heat = q_7_rng(isBar = False)
-    print(q7_df_heat.to_string())
     q7_df_heat = q7_df_heat.pivot(index='Countries',columns='Year')
-    print(q7_df_heat.to_string())
     q7_df_heat.drop(q7_df_heat.tail(1).index,inplace=True)
     q7_df_heat.columns = q7_df_heat.columns.droplevel(0)
 
