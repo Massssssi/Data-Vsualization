@@ -130,8 +130,7 @@ def q_8_rng():
     df = pd.DataFrame({'Countries': countryarr[:], 'Recyclable plastic %': rec_arr[:], 'Non-Recyclable plastic %': nrec_arr[:]})
     return df
 
-df = q_8_rng()
-print(df.to_string())
+
 
 #Plastic waste generation per person for every country per year (KG per year)
 def q_9_rng():
