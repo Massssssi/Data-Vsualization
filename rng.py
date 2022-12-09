@@ -80,22 +80,39 @@ def q_6_rng():
     return df
 
 
-def q_7_rng():
-    pollution_country = []
-    pollution_emission = []
-    pollution_year=[]
-    for i in range (7):
-        for j in range(len(time)):
-            pe_num = random.randrange(500000000,11000000000,1)
-            pollution_year.append(time[j])
-            pollution_country.append(countries[i])
-            pollution_emission.append(pe_num)
-    timearr = np.asarray(pollution_year)
-    countryarr = np.asarray(pollution_country)
-    pe = np.asarray(pollution_emission)
-    df = pd.DataFrame({'Countries': countryarr[:], 'Year': timearr[:], 'Pollution emmission': pe[:]})
-    df = df.set_index('Countries', append=True).swaplevel(1,0).sort_index(level=0)
-    return df
+def q_7_rng(isBar):
+    if isBar:
+        pollution_country = []
+        pollution_emission = []
+        pollution_year=[]
+        for i in range (7):
+            for j in range(len(time)):
+                pe_num = random.randrange(500000000,11000000000,1)
+                pollution_year.append(time[j])
+                pollution_country.append(countries[i])
+                pollution_emission.append(pe_num)
+        timearr = np.asarray(pollution_year)
+        countryarr = np.asarray(pollution_country)
+        pe = np.asarray(pollution_emission)
+        df = pd.DataFrame({'Countries': countryarr[:], 'Year': timearr[:], 'Pollution emmission': pe[:]})
+        #df = df.set_index('Countries', append=True).swaplevel(1,0).sort_index(level=0).copy()
+        return df
+    else :
+        pollution_country = []
+        pollution_emission = []
+        pollution_year=[]
+        for i in range (7):
+            for j in range(len(time)):
+                pe_num = random.randrange(500000000,11000000000,1)
+                pollution_year.append(time[j])
+                pollution_country.append(countries[i])
+                pollution_emission.append(pe_num)
+        timearr = np.asarray(pollution_year)
+        countryarr = np.asarray(pollution_country)
+        pe = np.asarray(pollution_emission)
+        df = pd.DataFrame({'Year': timearr[:], 'Countries': countryarr[:], 'Pollution emmission': pe[:]})
+        #df = df.set_index('Year', append=True).swaplevel(1,0).sort_index(level=0).copy()
+        return df
 
 
 def q_8_rng():

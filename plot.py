@@ -23,7 +23,6 @@ q4_df = q_4_rng()
 q5_df = q_5_rng()
 
 q6_df = q_6_rng()
-q7_df = q_7_rng()
 q8_df = q_8_rng()
 q9_df = q_9_rng()
 q10_df = q_10_rng()
@@ -64,6 +63,32 @@ def plot_tree_q6():
     fig = pltlyexp.treemap(q6_df, path = [labels],values = sizes, color = q6_df['Pollution emmission'], title="Plastic consumption shown by size (weight) vs pollution emmission (CO2) for countries in Western Europe")
     fig.show()
 
+
+def plot_bar_q7():
+    q7_df_bar = q_7_rng(isBar = True)
+    my_colors = list((['b', 'r', 'g', 'y', 'm']))
+    labels = [2016, 2017, 2018, 2019, 2020]
+    q7_df_bar.unstack().plot(kind='bar', stacked=True, color=my_colors)
+    plt.xlabel("Country")
+    plt.ylabel("Metric tonnes (kg)")
+    plt.title("Plastic pollution emmission (CO2) by countries over time")
+    plt.legend = plt.legend(labels=labels, title="Year",
+                        loc='upper right', fontsize='small', fancybox=True)
+    plt.show()
+
+def plot_heat_q7():
+    q7_df_heat = q_7_rng(isBar = False)
+    print(q7_df_heat.to_string())
+    q7_df_heat = q7_df_heat.pivot(index='Countries',columns='Year')
+    print(q7_df_heat.to_string())
+    q7_df_heat.drop(q7_df_heat.tail(1).index,inplace=True)
+    q7_df_heat.columns = q7_df_heat.columns.droplevel(0)
+
+    plt.rcParams['font.size'] = '9'
+
+    ax = sns.heatmap(q7_df_heat)
+
+    plt.show()
 
 
 
