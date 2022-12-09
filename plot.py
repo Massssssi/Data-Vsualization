@@ -16,12 +16,6 @@ q3_df = q_3_rng()
 q4_df = q_4_rng()
 q5_df = q_5_rng()
 
-q1_df = q_1_rng()
-q2_df = q_2_rng()
-q3_df = q_3_rng()
-q4_df = q_4_rng()
-q5_df = q_5_rng()
-
 q6_df = q_6_rng()
 q8_df = q_8_rng()
 q9_df = q_9_rng()
