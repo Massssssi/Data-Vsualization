@@ -6,7 +6,15 @@ import numpy as np
 import seaborn as sns
 import plotly.figure_factory as ff
 from plotly.offline import iplot
+import plotly.offline
 import plotly.graph_objs as go
+import time
+
+q1_df = q_1_rng()
+q2_df = q_2_rng()
+q3_df = q_3_rng()
+q4_df = q_4_rng()
+q5_df = q_5_rng()
 
 q1_df = q_1_rng()
 q2_df = q_2_rng()
@@ -86,11 +94,12 @@ def plot_choropleth_q10():
     chmap.update_layout(
         title_text = 'Amount of money spent recycling plastic in 2022'
     )
-    iplot(chmap)
+    chmap.show(config={
+    "showLink": False,
+    "displayModeBar": False
+})
 
 
 def plot_bar_q10():
     q10_df.set_index('countries').plot(kind='bar', rot=0, title="Amount of money spent recycling plastic per country (2022)").set_ylabel("Money spent (€)")
     plt.show()
-
-

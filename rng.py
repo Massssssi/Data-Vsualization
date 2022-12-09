@@ -135,5 +135,3 @@ def q_10_rng():
         plastic_money.append(row)
     df_q10 = pd.DataFrame(plastic_money, columns=columns)
     return df_q10
-
-
