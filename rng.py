@@ -128,9 +128,10 @@ def q_8_rng():
     countryarr = np.asarray(pollution_country)
     nrec_arr = np.asarray(percentage_nonrecyclable)
     df = pd.DataFrame({'Countries': countryarr[:], 'Recyclable plastic %': rec_arr[:], 'Non-Recyclable plastic %': nrec_arr[:]})
-    df = df.set_index('Countries', append=True).swaplevel(1,0).sort_index(level=0)
     return df
 
+df = q_8_rng()
+print(df.to_string())
 
 #Plastic waste generation per person for every country per year (KG per year)
 def q_9_rng():

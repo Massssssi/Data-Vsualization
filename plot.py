@@ -90,6 +90,20 @@ def plot_heat_q7():
 
     plt.show()
 
+def plot_bar_q8():
+    ax = q8_df.plot.bar(x='Countries', stacked=True, title="Recyclable plastic (%) vs Non-recyclable plastic (%) for countries in Western Europe")
+    plt.legend = plt.legend(title="Percentage",
+                   loc='upper right', fontsize='small', fancybox=True)
+    plt.show()
+
+plot_bar_q8()
+
+def plot_tree_q8():
+    sizes = q8_df['Recyclable plastic %'].values
+    labels = q8_df['Countries'].values
+
+    fig = pltlyexp.treemap(q8_df, path = [labels],values = sizes, color = q8_df['Non-Recyclable plastic %'], title="Recyclable plastic (%) shown by size vs Non-recyclable plastic (%) for countries in Western Europe")
+    fig.show()
 
 
 def plot_bar_q9():
