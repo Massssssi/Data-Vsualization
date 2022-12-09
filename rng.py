@@ -7,6 +7,60 @@ import pandas as pd
 countries = ['United Kingdom','Ireland','France','Spain','Portugal','Italy','Germany']
 time = [2016, 2017, 2018, 2019, 2020]
 
+#Q1: Most pollution produced by a country:
+def q_1_rng():
+    plastic_pollution = []
+    for i in range(7):
+        pp_num = random.randrange(1000000, 10000000, 1)
+        plastic_pollution.append(pp_num)
+        
+        
+    
+    print(plastic_pollution)
+    
+    df = pd.DataFrame({"countries" : countries[:], 'PlasticPolution' :plastic_pollution[:]})
+    return df
+
+def q_2_rng():
+    plastic_pollution = []
+    for i in range(7):
+        pp_num = random.randrange(1000000, 10000000, 1)
+        plastic_pollution.append(pp_num)  
+    df = pd.DataFrame({"countries" : countries[:], 'PlasticPolution' :plastic_pollution[:]})
+    return df
+
+
+def q_3_rng():
+    plastic_pollution = []
+    for i in range(7):
+        pp_num = random.randrange(1000000, 10000000, 1)
+        plastic_pollution.append(pp_num)  
+    df = pd.DataFrame({"countries" : countries[:], 'PlasticPolution' :plastic_pollution[:]})
+    return df
+
+def q_4_rng():
+    plastic_pollution = []
+    for i in range(7):
+        pp_num = random.randrange(1000000, 10000000, 1)
+        plastic_pollution.append(pp_num)  
+    df = pd.DataFrame({"countries" : countries[:], 'PlasticPolution' :plastic_pollution[:]})
+    return df
+
+def q_5_rng():
+    PET_pollution = []
+    HDPE_pollution = []
+    LDPE_pollution = []
+    PVC_pollution = []
+    for i in range(7):
+        PET_pollution.append(random.randrange(100000, 1000000, 1))
+        HDPE_pollution.append(random.randrange(100000, 1000000, 1))
+        LDPE_pollution.append(random.randrange(100000, 1000000, 1))
+        PVC_pollution.append(random.randrange(100000, 1000000, 1))
+    #stack = np.vstack((PET_pollution, HDPE_pollution, LDPE_pollution, PVC_pollution))
+    df = pd.DataFrame({"countries" : countries[:], 'PET': PET_pollution[:], 'HDPE': HDPE_pollution, 'LDPE': LDPE_pollution[:], 'PVC': PVC_pollution[:]})
+    return df
+    
+
 #plastic consumption in metric tonnes kg 
 #Pollution emission in metric tonnes kg (CO2)
 def q_6_rng():
@@ -98,5 +152,3 @@ def q_10_rng():
         plastic_money.append(row)
     df_q10 = pd.DataFrame(plastic_money, columns=columns)
     return df_q10
-
-

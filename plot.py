@@ -1,4 +1,4 @@
-from rng import q_6_rng, q_7_rng, q_8_rng, q_9_rng, q_10_rng
+from rng import q_1_rng, q_2_rng, q_3_rng, q_4_rng, q_5_rng, q_6_rng, q_6_rng, q_7_rng, q_8_rng, q_9_rng, q_10_rng
 import pandas as pd
 import matplotlib.pyplot as plt
 import plotly.express as pltlyexp
@@ -6,14 +6,50 @@ import numpy as np
 import seaborn as sns
 import plotly.figure_factory as ff
 from plotly.offline import iplot
+import plotly.offline
 import plotly.graph_objs as go
+import time
+
+q1_df = q_1_rng()
+q2_df = q_2_rng()
+q3_df = q_3_rng()
+q4_df = q_4_rng()
+q5_df = q_5_rng()
+
+q1_df = q_1_rng()
+q2_df = q_2_rng()
+q3_df = q_3_rng()
+q4_df = q_4_rng()
+q5_df = q_5_rng()
 
 q6_df = q_6_rng()
 q8_df = q_8_rng()
 q9_df = q_9_rng()
 q10_df = q_10_rng()
 
+def plot_bar_q1():
+    ax = q1_df.plot.bar(x="countries", title = 'Plastic pollution of different countries').set_ylabel("Plastic Pollution")
+    plt.show()
+    
+def plot_bar_q2():
+    ax = q2_df.plot.bar(x="countries", title = 'Plastic pollution of different countries').set_ylabel("Plastic Pollution")
+    plt.show()
+    
+def plot_bar_q3():
+    ax = q3_df.plot.bar(x="countries", title = 'Plastic pollution of different countries').set_ylabel("Plastic Pollution")
+    plt.show()
 
+def plot_bar_q4():
+    ax = q4_df.plot.bar(x="countries", title = 'Plastic pollution of different countries').set_ylabel("Plastic Pollution")
+    plt.show()
+    
+def plot_bar_q5():
+    ax = q5_df.plot.bar(x="countries", stacked = True, title = 'Different types of plastic pollution of different countries').set_ylabel("Plastic Pollution")
+    plt.legend = plt.legend(title="Plastic Types",
+                   loc='upper right', fontsize='small', fancybox=True)
+    plt.show()
+    
+    
 def plot_bar_q6():
     ax = q6_df.plot.bar(x='Countries', stacked=True, title='Plastic consumption (weight) vs pollution emmission (CO2) for countries in Western Europe').set_ylabel("Metric tonnes (kg)")
     plt.legend = plt.legend(title="Measure",
@@ -83,7 +119,10 @@ def plot_choropleth_q10():
     chmap.update_layout(
         title_text = 'Amount of money spent recycling plastic in 2022'
     )
-    iplot(chmap)
+    chmap.show(config={
+    "showLink": False,
+    "displayModeBar": False
+})
 
 
 def plot_bar_q10():
