@@ -18,7 +18,7 @@ def q_1_rng():
     
     print(plastic_pollution)
     
-    df = pd.DataFrame({"countires" : countries[:], 'PlasticPolution' :plastic_pollution[:]})
+    df = pd.DataFrame({"countries" : countries[:], 'PlasticPolution' :plastic_pollution[:]})
     return df
 
 def q_2_rng():
@@ -26,7 +26,7 @@ def q_2_rng():
     for i in range(7):
         pp_num = random.randrange(1000000, 10000000, 1)
         plastic_pollution.append(pp_num)  
-    df = pd.DataFrame({"countires" : countries[:], 'PlasticPolution' :plastic_pollution[:]})
+    df = pd.DataFrame({"countries" : countries[:], 'PlasticPolution' :plastic_pollution[:]})
     return df
 
 
@@ -35,7 +35,7 @@ def q_3_rng():
     for i in range(7):
         pp_num = random.randrange(1000000, 10000000, 1)
         plastic_pollution.append(pp_num)  
-    df = pd.DataFrame({"countires" : countries[:], 'PlasticPolution' :plastic_pollution[:]})
+    df = pd.DataFrame({"countries" : countries[:], 'PlasticPolution' :plastic_pollution[:]})
     return df
 
 def q_4_rng():
@@ -43,7 +43,7 @@ def q_4_rng():
     for i in range(7):
         pp_num = random.randrange(1000000, 10000000, 1)
         plastic_pollution.append(pp_num)  
-    df = pd.DataFrame({"countires" : countries[:], 'PlasticPolution' :plastic_pollution[:]})
+    df = pd.DataFrame({"countries" : countries[:], 'PlasticPolution' :plastic_pollution[:]})
     return df
 
 def q_5_rng():
@@ -57,7 +57,7 @@ def q_5_rng():
         LDPE_pollution.append(random.randrange(100000, 1000000, 1))
         PVC_pollution.append(random.randrange(100000, 1000000, 1))
     #stack = np.vstack((PET_pollution, HDPE_pollution, LDPE_pollution, PVC_pollution))
-    df = pd.DataFrame({"countires" : countries[:], 'PET': PET_pollution[:], 'HDPE': HDPE_pollution, 'LDPE': LDPE_pollution[:], 'PVC': PVC_pollution[:]})
+    df = pd.DataFrame({"countries" : countries[:], 'PET': PET_pollution[:], 'HDPE': HDPE_pollution, 'LDPE': LDPE_pollution[:], 'PVC': PVC_pollution[:]})
     return df
     
 
