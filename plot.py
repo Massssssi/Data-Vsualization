@@ -15,7 +15,8 @@ q2_df = q_2_rng()
 q3_df = q_3_rng()
 q4_df = q_4_rng()
 q5_df = q_5_rng()
-
+q7_df_bar = q_7_rng(isBar = True)
+q7_df_heat = q_7_rng(isBar = False)
 q6_df = q_6_rng()
 q8_df = q_8_rng()
 q9_df = q_9_rng()
@@ -129,7 +130,6 @@ def plot_tree_q6():
 
 
 def plot_bar_q7():
-    q7_df_bar = q_7_rng(isBar = True)
     my_colors = list((['b', 'r', 'g', 'y', 'm']))
     labels = [2016, 2017, 2018, 2019, 2020]
     q7_df_bar.unstack().plot(kind='bar', stacked=True, color=my_colors)
@@ -140,8 +140,8 @@ def plot_bar_q7():
                         loc='upper right', fontsize='small', fancybox=True)
     plt.show()
 
+
 def plot_heat_q7():
-    q7_df_heat = q_7_rng(isBar = False)
     q7_df_heat = q7_df_heat.pivot(index='Countries',columns='Year')
     q7_df_heat.drop(q7_df_heat.tail(1).index,inplace=True)
     q7_df_heat.columns = q7_df_heat.columns.droplevel(0)
@@ -151,6 +151,7 @@ def plot_heat_q7():
     ax = sns.heatmap(q7_df_heat)
 
     plt.show()
+
 
 def plot_bar_q8():
     ax = q8_df.plot.bar(x='Countries', stacked=True, title="Recyclable plastic (%) vs Non-recyclable plastic (%) for countries in Western Europe")
@@ -276,6 +277,18 @@ def return_options_q6():
     random.shuffle(options)
     return options
 
+
+def return_options_q7():
+    q7_df_options = q7_df_bar.groupby('Countries')['Pollution emmission'].sum().reset_index()
+    q7_df_options = q7_df_options.sort_values(by='Pollution emmission', ascending=False).head(4)
+    options = q7_df_options['Pollution emmission'].to_list()
+    for i in range(len(options)):
+        options[i] = [options[i], 0]
+    options[0][1]=1
+    random.shuffle(options)
+    return options
+
+
 #returns shuffled list of options for q8
 def return_options_q8():
     q8_df_sorted = q8_df
@@ -368,6 +381,8 @@ def return_options(x):
     to_return = []
     if x == 6:
         to_return = return_options_q6()
+    if x == 7:
+        to_return = return_options_q7()
     if x == 8:
         to_return = return_options_q8()
     if x == 9:

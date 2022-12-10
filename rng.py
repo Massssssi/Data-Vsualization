@@ -92,7 +92,7 @@ def q_7_rng(isBar):
         countryarr = np.asarray(pollution_country)
         pe = np.asarray(pollution_emission)
         df = pd.DataFrame({'Countries': countryarr[:], 'Year': timearr[:], 'Pollution emmission': pe[:]})
-        #df = df.set_index('Countries', append=True).swaplevel(1,0).sort_index(level=0).copy()
+        df = df.set_index('Countries', append=True).swaplevel(1,0).sort_index(level=0).copy()
         return df
     else :
         pollution_country = []
@@ -108,7 +108,6 @@ def q_7_rng(isBar):
         countryarr = np.asarray(pollution_country)
         pe = np.asarray(pollution_emission)
         df = pd.DataFrame({'Year': timearr[:], 'Countries': countryarr[:], 'Pollution emmission': pe[:]})
-        #df = df.set_index('Year', append=True).swaplevel(1,0).sort_index(level=0).copy()
         return df
 
 
