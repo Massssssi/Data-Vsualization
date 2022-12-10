@@ -8,7 +8,7 @@ import plotly.figure_factory as ff
 from plotly.offline import iplot
 import plotly.offline
 import plotly.graph_objs as go
-import time
+import random
 
 q1_df = q_1_rng()
 q2_df = q_2_rng()
@@ -197,9 +197,119 @@ def plot_choropleth_q10():
     )
     chmap.show()
 
-
+#Which country spends the most money recycling plastic?
 def plot_bar_q10():
     q10_df.set_index('countries').plot(kind='bar', rot=0, title="Amount of money spent recycling plastic per country (2022)").set_ylabel("Money spent (€)")
     plt.show()
 
+# returns shuffled list of options for q6
+def return_options_q6():
+    q6_df_sorted = q6_df
+    q6_df_sorted['Ratio'] = q6_df['Plastic consumption']/q6_df['Pollution emmission']
+    q6_df_sorted = q6_df_sorted.sort_values(by=['Ratio'],ascending=False).head(4)
+    options = q6_df_sorted['Countries'].to_list()
+    for i in range(len(options)):
+        options[i] = [options[i], 0]
+    options[0][1] = 1
+    random.shuffle(options)
+    return options
 
+#returns shuffled list of options for q8
+def return_options_q8():
+    q8_df_sorted = q8_df
+    q8_df_sorted['Ratio'] = q8_df['Recyclable plastic %']/q8_df['Non-Recyclable plastic %']
+    q8_df_sorted = q8_df_sorted.sort_values(by=['Ratio'],ascending=False).head(4)
+    options = q8_df_sorted['Countries'].to_list()
+    for i in range(len(options)):
+        options[i] = [options[i], 0]
+    options[0][1] = 1
+    random.shuffle(options)
+    return options
+
+#returns shuffled list of options for q9
+def return_options_q9():
+    q9_df_sorted = q9_df.sort_values(by=['plastic waste per capita'], ascending=False).head(4)
+    options = q9_df_sorted['countries'].to_list()
+    for i in range(len(options)):
+        options[i] = [options[i], 0]
+    options[0][1] = 1
+    random.shuffle(options)
+    return options
+
+#returns shuffled list of options for q10
+def return_options_q10():
+    q10_df_sorted = q10_df.sort_values(by=['money spent processing plastic'], ascending=False).head(4)
+    options = q10_df_sorted['countries'].to_list()
+    for i in range(len(options)):
+        options[i] = [options[i], 0]
+    options[0][1] = 1
+    random.shuffle(options)
+    return options
+
+
+def display_charts(x,type):
+    if x == 1:
+        if type == "bar":
+            plot_bar_q1()
+        else:
+            plot_choropleth_q1()
+    if x == 2:
+        if type == "bar":
+            plot_bar_q2()
+        else:
+            plot_tree_q2()
+    if x == 3:
+        if type == "bar":
+            plot_bar_q3()
+        else:
+            plot_tree_q3()
+    if x == 4:
+        if type == "bar":
+            plot_bar_q4()
+        else:
+            plot_tree_q4()
+    if x == 5:
+        if type == "bar":
+            plot_bar_q5()
+        else:
+            plot_heat_q5()
+    if x == 6:
+        if type == "bar":
+            plot_bar_q6()
+        else:
+            plot_tree_q6()
+    if x == 7:
+        if type == "bar":
+            plot_bar_q7()
+        else:
+            plot_heat_q7()
+    if x == 8:
+        if type == "bar":
+            plot_bar_q8()
+        else:
+            plot_tree_q8()
+    if x == 9:
+        if type == "bar":
+            plot_bar_q9()
+        else:
+            plot_tree_q9()
+    if x == 10:
+        if type == "bar":
+            plot_bar_q10()
+        else:
+            plot_choropleth_q10()   
+
+
+
+#need to finish this
+def return_options(x):
+    to_return = []
+    if x == 6:
+        to_return = return_options_q6()
+    if x == 8:
+        to_return = return_options_q8()
+    if x == 9:
+        to_return = return_options_q9()
+    if x == 10:
+        to_return = return_options_q10()
+    return to_return
