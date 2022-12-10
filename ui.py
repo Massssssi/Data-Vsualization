@@ -40,11 +40,17 @@ scores = []
 for i in range(10):
     scores.append([[0,0],[0,0]])
 
-print(scores)
 
 print("Welcome to our quiz, we will now be showing you 20 questions! try to answer these questions to the best of your ability!")
 input("Press Enter To Start")
 
 for i in range(20):
-    print("hi")
-    time.sleep(1)
+    print(questions[i][0])
+    options = plot.return_options(questions[i][1])
+    plot.display_charts(questions[i][1],questions[i][2])
+    print("The options are:")
+    print("0. ", options[0])
+    print("1. ", options[1])
+    print("1. ", options[2])
+    print("1. ", options[3])
+    answer = input("Enter your answer below: Options are 0,1,2 or 3")

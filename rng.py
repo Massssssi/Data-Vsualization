@@ -117,7 +117,7 @@ def q_8_rng():
     percentage_recyclable = []
     percentage_nonrecyclable = []
     for i in range (7):
-        per_rec = random.randrange(0,100,1)
+        per_rec = random.randrange(1,100,1)
         percentage_recyclable.append(per_rec)
         pollution_country.append(countries[i])
         percentage_nonrecyclable.append(100-per_rec)
