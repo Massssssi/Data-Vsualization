@@ -202,6 +202,68 @@ def plot_bar_q10():
     q10_df.set_index('countries').plot(kind='bar', rot=0, title="Amount of money spent recycling plastic per country (2022)").set_ylabel("Money spent (€)")
     plt.show()
 
+def return_options_q1():
+    q1_df_sorted = q1_df
+    q1_df_sorted = q1_df_sorted.sort_values(by = ['PlasticPolution'], ascending=False).head(4)
+    options = q1_df_sorted['PlasticPolution'].to_list()
+    for i in range(len(options)):
+        options[i] = [options[i], 0]
+    options[0][1] = 1
+    random.shuffle(options)
+    return options
+
+def return_options_q2():
+    q2_df_sorted = q2_df
+    q2_df_sorted = q2_df_sorted.sort_values(by = ['PlasticPolution'], ascending=False).head(4)
+    options = q2_df_sorted['countries'].to_list()
+    for i in range(len(options)):
+        options[i] = [options[i], 0]
+    options[0][1] = 1
+    random.shuffle(options)
+    return options
+
+def return_options_q3():
+    q3_df_sorted = q3_df
+    q3_df_sorted = q3_df_sorted.sort_values(by = ['PlasticPolution'], ascending=True).head(4)
+    options = q3_df_sorted['PlasticPolution'].to_list()
+    for i in range(len(options)):
+        options[i] = [options[i], 0]
+    options[0][1] = 1
+    random.shuffle(options)
+    return options
+
+def return_options_q4():
+    q4_df_sorted = q4_df
+    q4_df_sorted = q4_df_sorted.sort_values(by = ['PlasticPolution'], ascending=True).head(4)
+    options = q4_df_sorted['countries'].to_list()
+    for i in range(len(options)):
+        options[i] = [options[i], 0]
+    options[0][1] = 1
+    random.shuffle(options)
+    return options
+
+def return_options_q5():
+    q5_df_sorted = q5_df
+    q5_df_sorted = q5_df_sorted.head(1)
+    options = ['PET', 'HDPE', 'LDPE','PVC']
+    x = 0
+    high = ''
+    for i in options:
+        if q5_df_sorted[i][0]>x:
+            x = q5_df_sorted[i][0]
+            high = i
+    options2 = []
+    options2.append([high, 1])
+    for i in options:
+        options2.append([i, 0])
+    
+    options2.remove([high, 0])
+    random.shuffle(options2)
+    return options2
+    
+
+
+
 # returns shuffled list of options for q6
 def return_options_q6():
     q6_df_sorted = q6_df
@@ -313,3 +375,6 @@ def return_options(x):
     if x == 10:
         to_return = return_options_q10()
     return to_return
+
+
+
