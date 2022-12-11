@@ -85,7 +85,6 @@ def plot_heat_q5():
   
  
        countries = q5_df['countries']
-       print(countries)
        Polution_Type = ["PET", "HDPE", "LDPE", "PVC"]
 
       
@@ -285,8 +284,11 @@ def return_options_q6():
     return options
 
 
-def return_options_q7():
-    q7_df_options = q7_df_bar.groupby('Countries')['Pollution emmission'].sum().reset_index()
+def return_options_q7(type):
+    if type == "bar":
+        q7_df_options = q7_df_bar.groupby('Countries')['Pollution emmission'].sum().reset_index()
+    else:
+        q7_df_options = q7_df_heat.groupby('Countries')['Pollution emmission'].sum().reset_index()
     q7_df_options = q7_df_options.sort_values(by='Pollution emmission', ascending=False).head(4)
     options = q7_df_options['Pollution emmission'].to_list()
     for i in range(len(options)):
@@ -384,7 +386,7 @@ def display_charts(x,type):
 
 
 #need to finish this
-def return_options(x):
+def return_options(x,type):
     to_return = []
     if x == 1:
         to_return = return_options_q1()
@@ -399,7 +401,7 @@ def return_options(x):
     if x == 6:
         to_return = return_options_q6()
     if x == 7:
-        to_return = return_options_q7()
+        to_return = return_options_q7(type)
     if x == 8:
         to_return = return_options_q8()
     if x == 9:

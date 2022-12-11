@@ -46,7 +46,7 @@ input("Press Enter To Start")
 
 for i in range(20):
     print(questions[i][0])
-    options = plot.return_options(questions[i][1])
+    options = plot.return_options(questions[i][1], questions[i][2])
     print(options)
     plot.display_charts(questions[i][1],questions[i][2])
     print("The options are:")
