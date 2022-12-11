@@ -47,11 +47,28 @@ input("Press Enter To Start")
 for i in range(20):
     print(questions[i][0])
     options = plot.return_options(questions[i][1], questions[i][2])
-    print(options)
+    start_time = time.time()
     plot.display_charts(questions[i][1],questions[i][2])
     print("The options are:")
-    print("0. ", options[0])
-    print("1. ", options[1])
-    print("2. ", options[2])
-    print("3. ", options[3])
+    print("0. ", options[0][0])
+    print("1. ", options[1][0])
+    print("2. ", options[2][0])
+    print("3. ", options[3][0])
     answer = input("Enter your answer below: Options are 0,1,2 or 3")
+    while True:
+        if answer != "0" and answer != "1" and answer != "2" and answer != "3":
+            answer = input("Please enter options 0, 1, 2 or 3. Not anything else")
+        else:
+            break
+    end_time = time.time()
+    time_taken = end_time - start_time
+    answer = int(answer)
+
+
+    #adds to score
+    if questions[i][2] == "bar":
+        scores[questions[i][1]-1][0][0] = time_taken
+        scores[questions[i][1]-1][0][1] = options[answer][1]
+    else:
+        scores[questions[i][1]-1][1][0] = time_taken
+        scores[questions[i][1]-1][1][1] = options[answer][1]
