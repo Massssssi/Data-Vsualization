@@ -1,6 +1,7 @@
 import plot
 import time
 import random
+import csv
 #The following is the array of questions associated with its question number and its chart type. The array of these 3 objects will be shuffled and shown to user in randomised order
 #please update the third items with whatever map you intend to compare the bar with
 questions = [["What is the plastic pollution produced by the most polluting country?", 1, "bar"],
@@ -72,3 +73,32 @@ for i in range(20):
     else:
         scores[questions[i][1]-1][1][0] = time_taken
         scores[questions[i][1]-1][1][1] = options[answer][1]
+
+
+
+
+data = []
+data.append("Tester 1")
+
+for i in range(40):
+    if i<10:
+        data.append(scores[i][0][1])
+    elif i<20:
+        data.append(scores[i-10][1][1])
+    elif i<30:
+        data.append(scores[i-20][0][0])
+    else:
+        data.append(scores[i-30][1][0])
+
+
+
+
+
+with open('Results.csv', 'a', encoding='UTF8') as f:
+    writer = csv.writer(f)
+    writer.writerow(data)
+
+
+
+
+
