@@ -39,8 +39,9 @@ def plot_bar_q4():
     plt.show()
     
 def plot_bar_q5():
+    plt.clf()
     ax = q5_df.plot.bar(x="countries", stacked = True, title = 'Different types of plastic pollution of different countries').set_ylabel("Plastic Pollution")
-    plt.legend = plt.legend(title="Plastic Types",
+    plt.legend(title="Plastic Types",
                    loc='upper right', fontsize='small', fancybox=True)
     plt.show()
     
@@ -84,6 +85,7 @@ def plot_heat_q5():
   
  
        countries = q5_df['countries']
+       print(countries)
        Polution_Type = ["PET", "HDPE", "LDPE", "PVC"]
 
       
@@ -97,9 +99,11 @@ def plot_heat_q5():
        im = ax.imshow(harvest)
 
         # Show all ticks and label them with the respective list entries
-       ax.set_xticks(np.arange(len(countries)), labels=countries)
-       ax.set_yticks(np.arange(len(Polution_Type)), labels=Polution_Type)
+       ax.set_xticks(np.arange(len(countries)))
+       ax.set_yticks(np.arange(len(Polution_Type)))
 
+       ax.set_xticklabels(countries)
+       ax.set_yticklabels(Polution_Type)
         # Rotate the tick labels and set their alignment.
        plt.setp(ax.get_xticklabels(), rotation=45, ha="right",
                  rotation_mode="anchor")
@@ -116,8 +120,9 @@ def plot_heat_q5():
 
       
 def plot_bar_q6():
+    plt.clf()
     ax = q6_df.plot.bar(x='Countries', stacked=True, title='Plastic consumption (weight) vs pollution emmission (CO2) for countries in Western Europe').set_ylabel("Metric tonnes (kg)")
-    plt.legend = plt.legend(title="Measure",
+    plt.legend(title="Measure",
                    loc='upper right', fontsize='small', fancybox=True)
     plt.show()
 
@@ -130,32 +135,34 @@ def plot_tree_q6():
 
 
 def plot_bar_q7():
+    plt.clf()
     my_colors = list((['b', 'r', 'g', 'y', 'm']))
     labels = [2016, 2017, 2018, 2019, 2020]
     q7_df_bar.unstack().plot(kind='bar', stacked=True, color=my_colors)
     plt.xlabel("Country")
     plt.ylabel("Metric tonnes (kg)")
     plt.title("Plastic pollution emmission (CO2) by countries over time")
-    plt.legend = plt.legend(labels=labels, title="Year",
+    plt.legend(labels=labels, title="Year",
                         loc='upper right', fontsize='small', fancybox=True)
     plt.show()
 
 
 def plot_heat_q7():
-    q7_df_heat = q7_df_heat.pivot(index='Countries',columns='Year')
-    q7_df_heat.drop(q7_df_heat.tail(1).index,inplace=True)
-    q7_df_heat.columns = q7_df_heat.columns.droplevel(0)
+    q7_df_heat2 = q7_df_heat.pivot(index='Countries',columns='Year')
+    q7_df_heat2.drop(q7_df_heat2.tail(1).index,inplace=True)
+    q7_df_heat2.columns = q7_df_heat2.columns.droplevel(0)
 
     plt.rcParams['font.size'] = '9'
 
-    ax = sns.heatmap(q7_df_heat)
+    ax = sns.heatmap(q7_df_heat2)
 
     plt.show()
 
 
 def plot_bar_q8():
+    plt.clf()
     ax = q8_df.plot.bar(x='Countries', stacked=True, title="Recyclable plastic (%) vs Non-recyclable plastic (%) for countries in Western Europe")
-    plt.legend = plt.legend(title="Percentage",
+    plt.legend(title="Percentage",
                    loc='upper right', fontsize='small', fancybox=True)
     plt.show()
 
@@ -379,6 +386,16 @@ def display_charts(x,type):
 #need to finish this
 def return_options(x):
     to_return = []
+    if x == 1:
+        to_return = return_options_q1()
+    if x == 2:
+        to_return = return_options_q2()
+    if x == 3:
+        to_return = return_options_q3()
+    if x == 4:
+        to_return = return_options_q4()
+    if x == 5:
+        to_return = return_options_q5()
     if x == 6:
         to_return = return_options_q6()
     if x == 7:
@@ -390,6 +407,3 @@ def return_options(x):
     if x == 10:
         to_return = return_options_q10()
     return to_return
-
-
-
