@@ -4,8 +4,8 @@ import random
 import csv
 #The following is the array of questions associated with its question number and its chart type. The array of these 3 objects will be shuffled and shown to user in randomised order
 #please update the third items with whatever map you intend to compare the bar with
-questions = [["What is the plastic pollution produced by the most polluting country?", 1, "bar"],
-            ["What is the plastic pollution produced by the most polluting country?", 1, "choro"],
+questions = [["What is the plastic pollution emmission produced by the most polluting country?", 1, "bar"],
+            ["What is the plastic pollution emmission produced by the most polluting country?", 1, "choro"],
             ["Which country pollutes the most plastic", 2, "bar"],
             ["Which country pollutes the most plastic", 2,"tree"],
             ["What is the plastic pollution produced by the least polluting country?", 3, "bar"],
@@ -14,8 +14,8 @@ questions = [["What is the plastic pollution produced by the most polluting coun
             ["Which country pollutes the least plastic?", 4,"tree"],
             ["Which kind of plastic waste is most found in different countries?", 5, "bar"],
             ["Which kind of plastic waste is most found in different countries?", 5,"heat"],
-            ["Which country has the best plastic pollution to emission ratio?", 6, "bar"],
-            ["Which country has the best plastic pollution to emission ratio?", 6,"tree"],
+            ["Which country has the best plastic consumption to emission ratio?", 6, "bar"],
+            ["Which country has the best plastic consumption to emission ratio?", 6,"tree"],
             ["Which country pollutes the most?", 7, "bar"],
             ["Which country pollutes the most?", 7,"heat"],
             ["Which country has the best ratio of recyclable plastics to non-recyclable plastics?", 8, "bar"],
