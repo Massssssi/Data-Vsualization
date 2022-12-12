@@ -55,7 +55,7 @@ for i in range(20):
     print("1. ", options[1][0])
     print("2. ", options[2][0])
     print("3. ", options[3][0])
-    answer = input("Enter your answer below: Options are 0,1,2 or 3")
+    answer = input("Enter your answer below: Options are 0,1,2 or 3\n")
     while True:
         if answer != "0" and answer != "1" and answer != "2" and answer != "3":
             answer = input("Please enter options 0, 1, 2 or 3. Not anything else")
